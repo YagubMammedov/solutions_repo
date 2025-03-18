@@ -254,7 +254,7 @@ plt.show()
 </ul>
 <p>Got it! Here's the markdown for Task 2 based on your requirements. You can directly copy-paste it into Visual Studio Code:</p>
 <pre><code class="language-markdown">
-#### Task 2: Analysis of Dynamics
+## Task 2: Analysis of Dynamics
 
 ### Damped Pendulum Equation
 
@@ -426,7 +426,7 @@ plt.show()
 
 The goal of this task is to create a computational model to simulate the motion of a forced damped pendulum. We will implement numerical methods to solve the system of equations governing the pendulum's motion and visualize the behavior under different conditions such as varying damping coefficients, driving forces, and initial conditions. Additionally, we will explore the phase diagrams and Poincaré sections to analyze transitions to chaotic behavior.
 
-### 4.1. Mathematical Model
+## 4.1 Mathematical Model
 
 The equation governing the forced damped pendulum is:
 
@@ -442,7 +442,7 @@ Where:
 - $A$ is the amplitude of the external driving force.
 - $\omega$ is the driving frequency.
 
-### 4.2 Numerical Method: Runge-Kutta
+## 4.2 Numerical Method: Runge-Kutta
 
 We will solve this equation using the **Runge-Kutta method** (specifically the 4th order method). This is a powerful method for solving ordinary differential equations numerically.
 
@@ -460,7 +460,7 @@ $$
 
 Where $m$ is the mass (which can be factored out in this simplified model).
 
-### 4.3 Python Implementation
+## 4.3 Python Implementation
 
 ```python
 import numpy as np
@@ -539,12 +539,12 @@ plt.show()
 <li><strong>Angle vs Time Plot</strong>: This plot shows the angular displacement of the pendulum over time. We can observe the periodic oscillations and the effect of damping and external forcing.</li>
 <li><strong>Phase Space Plot</strong>: The phase space plot shows the relationship between the angular displacement and the angular velocity, which is useful for understanding the system's dynamics and detecting chaotic behavior.</li>
 </ul>
-<h3 id="45-exploring-transitions-to-chaos">4.5. Exploring Transitions to Chaos</h3>
+<h2 id="45-exploring-transitions-to-chaos">4.5. Exploring Transitions to Chaos</h2>
 <p>By varying parameters like the damping coefficient <span class="arithmatex">\(b\)</span>, driving amplitude <span class="arithmatex">\(A\)</span>, and driving frequency <span class="arithmatex">\(\omega\)</span>, we can observe transitions from regular periodic motion to chaotic behavior. The system exhibits <strong>nonlinear dynamics</strong> under certain conditions, and visualizing this in the form of <strong>phase diagrams</strong>, <strong>Poincaré sections</strong>, and <strong>bifurcation diagrams</strong> helps us analyze these transitions.</p>
 <p>For instance, increasing the driving amplitude or frequency can cause periodic motion to transition to chaos. These transitions are key to understanding the more complex behaviors of oscillatory systems in real-world applications.</p>
 <h4 id="poincare-section-example">Poincaré Section Example</h4>
 <p>We can create a Poincaré section by plotting the value of <span class="arithmatex">\(v\)</span> versus <span class="arithmatex">\(\theta\)</span> at discrete times where the pendulum crosses the <span class="arithmatex">\(\theta = 0\)</span> axis. This allows us to observe the structure of the chaotic attractor and identify periodic, quasiperiodic, and chaotic regimes.</p>
-<h3 id="46-further-extensions">4.6 Further Extensions</h3>
+<h2 id="46-further-extensions">4.6 Further Extensions</h2>
 <p>The model presented here is a simple forced damped pendulum. In real-world systems, additional complexities such as <strong>nonlinear damping</strong>, <strong>non-periodic forcing</strong>, or <strong>frictional forces</strong> may exist. These factors can introduce more complexity into the dynamics, which can be explored through extended computational models.</p>
 <h4 id="example-extensions">Example Extensions:</h4>
 <ul>
