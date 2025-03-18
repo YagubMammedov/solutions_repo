@@ -313,3 +313,104 @@ The idealized projectile motion model can be adapted to real-world scenarios by 
 
 These adaptations make the model more realistic and applicable to practical situations such as sports, engineering, and space exploration.
 
+
+
+
+
+# Task 1.4:  Implementation:
+
+## Python Code for Simulation and Visualization
+
+Below is the Python script to simulate projectile motion and visualize the range as a function of the angle of projection for different initial conditions.
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Function to calculate the range of a projectile
+def calculate_range(theta, v0, g):
+    """
+    Calculate the horizontal range of a projectile.
+    
+    Parameters:
+        theta (float): Angle of projection in degrees.
+        v0 (float): Initial velocity in m/s.
+        g (float): Gravitational acceleration in m/s².
+    
+    Returns:
+        float: Horizontal range in meters.
+    """
+    theta_rad = np.radians(theta)  # Convert angle to radians
+    return (v0**2 * np.sin(2 * theta_rad)) / g
+
+# Parameters
+v0_values = [30, 50, 70]  # Different initial velocities (m/s)
+g_values = [9.81, 1.62]    # Gravitational acceleration (Earth and Moon) (m/s²)
+angles = np.linspace(0, 90, 100)  # Angles from 0 to 90 degrees
+
+# Plotting
+plt.figure(figsize=(12, 8))
+
+# Loop over initial velocities
+for v0 in v0_values:
+    # Loop over gravitational accelerations
+    for g in g_values:
+        ranges = calculate_range(angles, v0, g)
+        plt.plot(angles, ranges, label=f"v0 = {v0} m/s, g = {g} m/s²")
+
+# Customize plot
+plt.title("Range vs Angle of Projection for Different Initial Conditions")
+plt.xlabel("Angle of Projection (degrees)")
+plt.ylabel("Range (m)")
+plt.grid(True)
+plt.legend()
+plt.show()
+```
+
+---
+
+## Explanation of the Code
+
+1. **Function `calculate_range`:**
+   - This function calculates the horizontal range $R$ of a projectile using the formula:
+     $$
+     R = \frac{v_0^2 \sin(2\theta)}{g}
+     $$
+   - It takes the angle of projection $\theta$ (in degrees), initial velocity $v_0$, and gravitational acceleration $g$ as inputs and returns the range $R$.
+
+2. **Parameters:**
+   - `v0_values`: A list of initial velocities (e.g., 30 m/s, 50 m/s, 70 m/s).
+   - `g_values`: A list of gravitational accelerations (e.g., 9.81 m/s² for Earth, 1.62 m/s² for the Moon).
+   - `angles`: An array of angles from 0 to 90 degrees.
+
+3. **Plotting:**
+   - The code loops over each combination of initial velocity and gravitational acceleration.
+   - For each combination, it calculates the range for all angles and plots the results.
+   - The plot is customized with a title, axis labels, grid, and legend.
+
+---
+
+## How to Run the Code
+
+1. Copy the Python script into a new file in Visual Studio Code (e.g., `projectile_motion.py`).
+2. Save the file and run it.
+3. A graph will appear showing the range as a function of the angle of projection for different initial conditions.
+
+---
+
+## Expected Output
+
+The graph will display:
+- Multiple curves, each representing a combination of initial velocity and gravitational acceleration.
+- The maximum range occurs at $45^\circ$ for all cases.
+- Higher initial velocities result in greater ranges.
+- Lower gravitational accelerations (e.g., on the Moon) result in greater ranges.
+
+---
+
+## Next Steps
+
+- Extend the simulation to include air resistance or drag.
+- Explore the effect of uneven terrain on the range.
+```
+![alt text](image.png)
