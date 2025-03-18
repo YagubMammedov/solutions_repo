@@ -340,11 +340,6 @@ In biomechanics, the principles of the forced damped pendulum are used to model 
 
 #### Task 4:Implementation
 
-
-### Introduction
-
-The goal of this task is to create a computational model to simulate the motion of a forced damped pendulum. We will implement numerical methods to solve the system of equations governing the pendulum's motion and visualize the behavior under different conditions such as varying damping coefficients, driving forces, and initial conditions. Additionally, we will explore the phase diagrams and Poincaré sections to analyze transitions to chaotic behavior.
-
 ## 4.1 Mathematical Model
 
 The equation governing the forced damped pendulum is:
