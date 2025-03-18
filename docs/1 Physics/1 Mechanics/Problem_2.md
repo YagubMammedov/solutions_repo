@@ -290,7 +290,7 @@ When the amplitude $ A $ or the driving frequency $ \omega $ is increased furthe
 
 The forced damped pendulum is not just an idealized model but has practical applications in various fields, including energy harvesting, civil engineering (suspension bridges), and electrical engineering (oscillating circuits). In this section, we will explore some of the real-world scenarios where the principles of the forced damped pendulum are applied and provide insight into how damping, restoring forces, and external periodic forces come into play.
 
-### 1. Energy Harvesting Devices
+### 3.1 Energy Harvesting Devices
 
 In energy harvesting, systems are designed to convert mechanical vibrations into electrical energy. A common application is the use of **vibration energy harvesters**, which are often based on the forced damped pendulum model. The key idea is to capture the oscillations of a system subjected to external forces (such as wind, traffic, or machinery vibrations) and convert these oscillations into useful electrical energy.
 
@@ -302,7 +302,7 @@ In energy harvesting, systems are designed to convert mechanical vibrations into
 #### Example: 
 A **piezoelectric energy harvester** often uses a pendulum-like system to harvest energy from vibrations. A pendulum is attached to a piezoelectric element, and when it oscillates, it generates electrical energy that can be stored and used.
 
-### 2. Suspension Bridges and Building Design
+### 3.2 Suspension Bridges and Building Design
 
 In civil engineering, suspension bridges and tall buildings are often subjected to oscillations due to wind, traffic, or seismic activity. The forced damped pendulum model helps engineers design systems that can dampen and control these oscillations, preventing excessive sway and ensuring the structural integrity of the system.
 
@@ -314,7 +314,7 @@ In civil engineering, suspension bridges and tall buildings are often subjected 
 #### Example:
 - **Millennium Bridge in London**: After opening in 2000, this pedestrian bridge exhibited unexpected swaying due to the synchronization of people's walking frequency and the natural frequency of the bridge. The solution involved installing tuned mass dampers to prevent resonance and reduce the oscillation amplitude, mimicking the damping effects in a forced damped pendulum system.
 
-### 3. Oscillating Circuits in Electrical Engineering
+### 3.3 Oscillating Circuits in Electrical Engineering
 
 In electrical engineering, oscillating circuits—such as **RLC circuits**—can be modeled by a forced damped pendulum. These circuits consist of resistors (R), inductors (L), and capacitors (C) and are often subjected to external periodic forces (e.g., alternating current signals).
 
@@ -326,7 +326,7 @@ In electrical engineering, oscillating circuits—such as **RLC circuits**—can
 #### Example:
 - **Radio Tuners**: In a radio, the resonant frequency of the RLC circuit is tuned to match the frequency of the incoming radio wave, much like a pendulum resonating with an external force. The damping in the circuit determines how sharply the radio is tuned to a specific frequency, and the amplitude of the oscillations affects the signal strength.
 
-### 4. Biomechanics: Human Gait
+### 3.4 Biomechanics: Human Gait
 
 In biomechanics, the principles of the forced damped pendulum are used to model human gait. The human body can be thought of as a system of pendulum-like motions when walking, with each step being driven by muscle forces and damped by internal resistance (e.g., friction and air resistance).
 
