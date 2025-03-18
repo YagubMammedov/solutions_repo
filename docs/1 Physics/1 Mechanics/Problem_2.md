@@ -1,8 +1,4 @@
 # Problem 2
-
-Sure! Below is the Markdown formatted for Visual Studio Code, using the $$ sign for equations and the $ sign for inline equations. This will allow you to copy and paste directly into VSC.
-
-```markdown
 # Forced Damped Pendulum: Theoretical and Computational Analysis
 
 ## Task 1.1: Theoretical Foundation
@@ -167,9 +163,8 @@ plt.show()
 Got it! Here's the markdown for Task 2 based on your requirements. You can directly copy-paste it into Visual Studio Code:
 
 ```markdown
-# Forced Damped Pendulum: Task 2 - Analysis of Dynamics
 
-## Task 2: Analysis of Dynamics
+####  Task 2: Analysis of Dynamics
 
 I### Damped Pendulum Equation
 
@@ -292,7 +287,6 @@ When the amplitude $ A $ or the driving frequency $ \omega $ is increased furthe
 
 ## Task 3: Practical Applications:
 
-## Task 3: Real-World Applications of the Forced Damped Pendulum Model
 
 The forced damped pendulum is not just an idealized model but has practical applications in various fields, including energy harvesting, civil engineering (suspension bridges), and electrical engineering (oscillating circuits). In this section, we will explore some of the real-world scenarios where the principles of the forced damped pendulum are applied and provide insight into how damping, restoring forces, and external periodic forces come into play.
 
@@ -346,9 +340,8 @@ In biomechanics, the principles of the forced damped pendulum are used to model 
 ---Here’s Task 4 written in Markdown for Visual Studio Code:
 
 ```markdown
-# Forced Damped Pendulum: Task 4 - Implementation
 
-## Task 4: Computational Model for the Forced Damped Pendulum
+## Task 4:  Implementation:
 
 ### Introduction
 
@@ -463,7 +456,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-### 4. Visualization and Interpretation
+### Task 4. Visualization and Interpretation
 
 - **Angle vs Time Plot**: This plot shows the angular displacement of the pendulum over time. We can observe the periodic oscillations and the effect of damping and external forcing.
 - **Phase Space Plot**: The phase space plot shows the relationship between the angular displacement and the angular velocity, which is useful for understanding the system's dynamics and detecting chaotic behavior.
