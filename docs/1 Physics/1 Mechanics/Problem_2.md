@@ -456,7 +456,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-### Task 4. Visualization and Interpretation
+## Task 4.4 Visualization and Interpretation
 
 - **Angle vs Time Plot**: This plot shows the angular displacement of the pendulum over time. We can observe the periodic oscillations and the effect of damping and external forcing.
 - **Phase Space Plot**: The phase space plot shows the relationship between the angular displacement and the angular velocity, which is useful for understanding the system's dynamics and detecting chaotic behavior.
@@ -471,7 +471,7 @@ For instance, increasing the driving amplitude or frequency can cause periodic m
 
 We can create a Poincaré section by plotting the value of $v$ versus $\theta$ at discrete times where the pendulum crosses the $\theta = 0$ axis. This allows us to observe the structure of the chaotic attractor and identify periodic, quasiperiodic, and chaotic regimes.
 
-### 4.6. Further Extensions
+### 4.6 Further Extensions
 
 The model presented here is a simple forced damped pendulum. In real-world systems, additional complexities such as **nonlinear damping**, **non-periodic forcing**, or **frictional forces** may exist. These factors can introduce more complexity into the dynamics, which can be explored through extended computational models.
 
