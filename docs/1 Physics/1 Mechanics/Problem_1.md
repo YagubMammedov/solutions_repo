@@ -95,3 +95,67 @@ The range $R$ depends on two variables: the initial velocity $v_0$ and the angle
   - The range $R$ is a function of $\sin(2\theta)$. Therefore, the range will be maximized when $\theta = 45^\circ$, since $\sin(90^\circ) = 1$.
 
 By varying the initial velocity or launch angle, we obtain a family of solutions describing the projectile's behavior.
+
+
+
+# Task 1.2 Analysis of the Range
+
+## Introduction
+In projectile motion, the horizontal range \( R \) is the distance a projectile travels before hitting the ground. It depends on the angle of projection \( \theta \), the initial velocity \( v_0 \), and the gravitational acceleration \( g \). This task investigates how the range varies with the angle of projection and how other parameters influence this relationship.
+
+## Governing Equations
+The horizontal range \( R \) of a projectile launched at an angle \( \theta \) with initial velocity \( v_0 \) is given by:
+$$
+R = \frac{v_0^2 \sin(2\theta)}{g}
+$$
+This equation assumes:
+- No air resistance.
+- A flat, horizontal surface.
+- Constant gravitational acceleration \( g \).
+
+## Python Script for Simulation
+Below is a Python script to simulate the range as a function of the angle of projection and visualize the results.
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Constants
+g = 9.81  # Gravitational acceleration (m/s^2)
+v0 = 50   # Initial velocity (m/s)
+
+# Function to calculate range
+def calculate_range(theta, v0, g):
+    theta_rad = np.radians(theta)  # Convert angle to radians
+    return (v0**2 * np.sin(2 * theta_rad)) / g
+
+# Generate angles from 0 to 90 degrees
+angles = np.linspace(0, 90, 100)
+ranges = calculate_range(angles, v0, g)
+
+# Plotting
+plt.figure(figsize=(10, 6))
+plt.plot(angles, ranges, label=f"v0 = {v0} m/s, g = {g} m/s²")
+plt.title("Range vs Angle of Projection")
+plt.xlabel("Angle of Projection (degrees)")
+plt.ylabel("Range (m)")
+plt.grid(True)
+plt.legend()
+plt.show()
+```
+
+## Graphical Representation
+The graph above shows the range \( R \) as a function of the angle of projection \( \theta \). Key observations:
+1. The range is maximum at \( \theta = 45^\circ \).
+2. The range is symmetric around \( 45^\circ \).
+3. For angles \( \theta < 45^\circ \) and \( \theta > 45^\circ \), the range decreases.
+
+## Influence of Parameters
+1. **Initial Velocity \( v_0 \):**
+   - Increasing \( v_0 \) increases the range quadratically, as \( R \propto v_0^2 \).
+   - Decreasing \( v_0 \) reduces the range.
+
+2. **Gravitational Acceleration \( g \):**
+   - Increasing \( g \) decreases the range, as \( R \propto \frac{1}{g} \).
+   - Decreasing \( g \) increases the range.
+
