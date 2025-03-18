@@ -160,13 +160,10 @@ plt.show()
 - **Nonlinear Damping:** The damping term can be made nonlinear (e.g., $ b(\theta) = \alpha \theta^2 $) to model systems where the damping increases with amplitude.
 - **Non-Periodic Driving Force:** Introducing a random or aperiodic driving force could model systems that are more unpredictable, such as climate models or biological rhythms.
 
-Got it! Here's the markdown for Task 2 based on your requirements. You can directly copy-paste it into Visual Studio Code:
 
-```markdown
 
 ## Task 2: Analysis of Dynamics
 
-### Damped Pendulum Equation
 
 The equation of motion for the forced damped pendulum is given by:
 
