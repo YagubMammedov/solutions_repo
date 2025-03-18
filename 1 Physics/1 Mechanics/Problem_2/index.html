@@ -252,60 +252,39 @@ plt.show()
 <li><strong>Nonlinear Damping:</strong> The damping term can be made nonlinear (e.g., $ b(\theta) = \alpha \theta^2 $) to model systems where the damping increases with amplitude.</li>
 <li><strong>Non-Periodic Driving Force:</strong> Introducing a random or aperiodic driving force could model systems that are more unpredictable, such as climate models or biological rhythms.</li>
 </ul>
-<p>Got it! Here's the markdown for Task 2 based on your requirements. You can directly copy-paste it into Visual Studio Code:</p>
-<pre><code class="language-markdown">
-## Task 2: Analysis of Dynamics
-
-### Damped Pendulum Equation
-
-The equation of motion for the forced damped pendulum is given by:
-
-$$
+<h2 id="task-2-analysis-of-dynamics">Task 2: Analysis of Dynamics</h2>
+<p>The equation of motion for the forced damped pendulum is given by:</p>
+<div class="arithmatex">\[
 \frac{d^2\theta}{dt^2} + b\frac{d\theta}{dt} + \frac{g}{L} \sin\theta = A\cos(\omega t)
-$$
-
-Where:
+\]</div>
+<p>Where:
 - $ \theta $ is the angular displacement of the pendulum.
 - $ b $ is the damping coefficient, which characterizes the friction or resistive forces.
 - $ g $ is the acceleration due to gravity.
 - $ L $ is the length of the pendulum.
 - $ A $ is the amplitude of the external driving force.
-- $ \omega $ is the frequency of the external driving force.
-
-For small angles, we approximate $ \sin(\theta) \approx \theta $, simplifying the equation to:
-
-$$
+- $ \omega $ is the frequency of the external driving force.</p>
+<p>For small angles, we approximate $ \sin(\theta) \approx \theta $, simplifying the equation to:</p>
+<div class="arithmatex">\[
 \frac{d^2\theta}{dt^2} + b\frac{d\theta}{dt} + \frac{g}{L} \theta = A\cos(\omega t)
-$$
-
-### Influence of the Damping Coefficient ($ b $)
-
-The damping coefficient $ b $ governs the rate at which the oscillations decay. The behavior of the system can be categorized as:
-1. **Underdamped ($ b $ small)**: The pendulum exhibits oscillations that gradually decay over time.
-2. **Critically damped ($ b $ at a specific value)**: The pendulum returns to equilibrium without oscillating, but faster than the overdamped case.
-3. **Overdamped ($ b $ large)**: The pendulum returns to equilibrium slowly without oscillating.
-
-### Influence of the Driving Amplitude ($ A $)
-
-The driving amplitude $ A $ represents the strength of the external periodic force. Increasing $ A $ increases the amplitude of the oscillations. When $ A $ is large, the system can experience resonance, where the amplitude of oscillation grows significantly, especially when the driving frequency $ \omega $ is close to the natural frequency of the pendulum.
-
-### Influence of the Driving Frequency ($ \omega $)
-
-The frequency $ \omega $ of the external driving force significantly affects the system's behavior. When the driving frequency is close to the natural frequency of the pendulum, resonance occurs, causing the amplitude of oscillation to increase dramatically. If $ \omega $ is too far from the natural frequency, the oscillations are less pronounced.
-
-### Transition from Regular to Chaotic Motion
-
-At certain parameter values (especially for larger driving amplitudes or frequencies), the motion of the forced damped pendulum can become chaotic. This is characterized by irregular and aperiodic oscillations. The transition from regular to chaotic motion is influenced by:
-- **Damping coefficient**: The damping affects how quickly the system reaches steady oscillation or chaos.
-- **Driving amplitude**: Larger driving amplitudes are more likely to cause chaotic behavior.
-- **Driving frequency**: If the frequency is tuned incorrectly, the system can transition from regular periodic motion to chaotic motion, especially in the case of resonances.
-
-### Numerical Simulation and Visualization
-
-To explore these dynamics, we can use numerical simulations. Below is a Python script that investigates how varying $ b $, $ A $, and $ \omega $ affect the motion of the pendulum.
-
-```python
-import numpy as np
+\]</div>
+<h3 id="influence-of-the-damping-coefficient-b">Influence of the Damping Coefficient ($ b $)</h3>
+<p>The damping coefficient $ b $ governs the rate at which the oscillations decay. The behavior of the system can be categorized as:
+1. <strong>Underdamped ($ b $ small)</strong>: The pendulum exhibits oscillations that gradually decay over time.
+2. <strong>Critically damped ($ b $ at a specific value)</strong>: The pendulum returns to equilibrium without oscillating, but faster than the overdamped case.
+3. <strong>Overdamped ($ b $ large)</strong>: The pendulum returns to equilibrium slowly without oscillating.</p>
+<h3 id="influence-of-the-driving-amplitude-a">Influence of the Driving Amplitude ($ A $)</h3>
+<p>The driving amplitude $ A $ represents the strength of the external periodic force. Increasing $ A $ increases the amplitude of the oscillations. When $ A $ is large, the system can experience resonance, where the amplitude of oscillation grows significantly, especially when the driving frequency $ \omega $ is close to the natural frequency of the pendulum.</p>
+<h3 id="influence-of-the-driving-frequency-omega">Influence of the Driving Frequency ($ \omega $)</h3>
+<p>The frequency $ \omega $ of the external driving force significantly affects the system's behavior. When the driving frequency is close to the natural frequency of the pendulum, resonance occurs, causing the amplitude of oscillation to increase dramatically. If $ \omega $ is too far from the natural frequency, the oscillations are less pronounced.</p>
+<h3 id="transition-from-regular-to-chaotic-motion">Transition from Regular to Chaotic Motion</h3>
+<p>At certain parameter values (especially for larger driving amplitudes or frequencies), the motion of the forced damped pendulum can become chaotic. This is characterized by irregular and aperiodic oscillations. The transition from regular to chaotic motion is influenced by:
+- <strong>Damping coefficient</strong>: The damping affects how quickly the system reaches steady oscillation or chaos.
+- <strong>Driving amplitude</strong>: Larger driving amplitudes are more likely to cause chaotic behavior.
+- <strong>Driving frequency</strong>: If the frequency is tuned incorrectly, the system can transition from regular periodic motion to chaotic motion, especially in the case of resonances.</p>
+<h3 id="numerical-simulation-and-visualization">Numerical Simulation and Visualization</h3>
+<p>To explore these dynamics, we can use numerical simulations. Below is a Python script that investigates how varying $ b $, $ A $, and $ \omega $ affect the motion of the pendulum.</p>
+<pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import solve_ivp
 
