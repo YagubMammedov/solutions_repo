@@ -401,6 +401,99 @@ where:
 2. Uneven terrain.
 3. Variable gravitational fields.</p>
 <p>These adaptations make the model more realistic and applicable to practical situations such as sports, engineering, and space exploration.</p>
+<h1 id="task-14-implementation">Task 1.4:  Implementation:</h1>
+<h2 id="python-code-for-simulation-and-visualization">Python Code for Simulation and Visualization</h2>
+<p>Below is the Python script to simulate projectile motion and visualize the range as a function of the angle of projection for different initial conditions.</p>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+# Function to calculate the range of a projectile
+def calculate_range(theta, v0, g):
+    """
+    Calculate the horizontal range of a projectile.
+
+    Parameters:
+        theta (float): Angle of projection in degrees.
+        v0 (float): Initial velocity in m/s.
+        g (float): Gravitational acceleration in m/s².
+
+    Returns:
+        float: Horizontal range in meters.
+    """
+    theta_rad = np.radians(theta)  # Convert angle to radians
+    return (v0**2 * np.sin(2 * theta_rad)) / g
+
+# Parameters
+v0_values = [30, 50, 70]  # Different initial velocities (m/s)
+g_values = [9.81, 1.62]    # Gravitational acceleration (Earth and Moon) (m/s²)
+angles = np.linspace(0, 90, 100)  # Angles from 0 to 90 degrees
+
+# Plotting
+plt.figure(figsize=(12, 8))
+
+# Loop over initial velocities
+for v0 in v0_values:
+    # Loop over gravitational accelerations
+    for g in g_values:
+        ranges = calculate_range(angles, v0, g)
+        plt.plot(angles, ranges, label=f"v0 = {v0} m/s, g = {g} m/s²")
+
+# Customize plot
+plt.title("Range vs Angle of Projection for Different Initial Conditions")
+plt.xlabel("Angle of Projection (degrees)")
+plt.ylabel("Range (m)")
+plt.grid(True)
+plt.legend()
+plt.show()
+</code></pre>
+<hr/>
+<h2 id="explanation-of-the-code">Explanation of the Code</h2>
+<ol>
+<li><strong>Function <code>calculate_range</code>:</strong></li>
+<li>This function calculates the horizontal range <span class="arithmatex">\(R\)</span> of a projectile using the formula:
+     $$
+     R = \frac{v_0^2 \sin(2\theta)}{g}
+     $$</li>
+<li>
+<p>It takes the angle of projection <span class="arithmatex">\(\theta\)</span> (in degrees), initial velocity <span class="arithmatex">\(v_0\)</span>, and gravitational acceleration <span class="arithmatex">\(g\)</span> as inputs and returns the range <span class="arithmatex">\(R\)</span>.</p>
+</li>
+<li>
+<p><strong>Parameters:</strong></p>
+</li>
+<li><code>v0_values</code>: A list of initial velocities (e.g., 30 m/s, 50 m/s, 70 m/s).</li>
+<li><code>g_values</code>: A list of gravitational accelerations (e.g., 9.81 m/s² for Earth, 1.62 m/s² for the Moon).</li>
+<li>
+<p><code>angles</code>: An array of angles from 0 to 90 degrees.</p>
+</li>
+<li>
+<p><strong>Plotting:</strong></p>
+</li>
+<li>The code loops over each combination of initial velocity and gravitational acceleration.</li>
+<li>For each combination, it calculates the range for all angles and plots the results.</li>
+<li>The plot is customized with a title, axis labels, grid, and legend.</li>
+</ol>
+<hr/>
+<h2 id="how-to-run-the-code">How to Run the Code</h2>
+<ol>
+<li>Copy the Python script into a new file in Visual Studio Code (e.g., <code>projectile_motion.py</code>).</li>
+<li>Save the file and run it.</li>
+<li>A graph will appear showing the range as a function of the angle of projection for different initial conditions.</li>
+</ol>
+<hr/>
+<h2 id="expected-output">Expected Output</h2>
+<p>The graph will display:
+- Multiple curves, each representing a combination of initial velocity and gravitational acceleration.
+- The maximum range occurs at <span class="arithmatex">\(45^\circ\)</span> for all cases.
+- Higher initial velocities result in greater ranges.
+- Lower gravitational accelerations (e.g., on the Moon) result in greater ranges.</p>
+<hr/>
+<h2 id="next-steps">Next Steps</h2>
+<ul>
+<li>Extend the simulation to include air resistance or drag.</li>
+<li>Explore the effect of uneven terrain on the range.
+```
+<img alt="alt text" src="../image.png"/></li>
+</ul>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
