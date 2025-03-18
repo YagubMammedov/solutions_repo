@@ -160,7 +160,8 @@ The graph above shows the range \( R \) as a function of the angle of projection
    - Decreasing \( g \) increases the range.
 
 
-# Task 1.3  Practical Applications
+
+# Task 1.3 Practical Applications
 
 ## Introduction
 The idealized model of projectile motion assumes:
@@ -240,3 +241,75 @@ plt.ylabel("Vertical Distance (m)")
 plt.grid(True)
 plt.legend()
 plt.show()
+```
+
+---
+
+## 2. Uneven Terrain
+In real-world scenarios, the ground may not be flat. For example, a projectile launched from a hill or into a valley will have a different range compared to flat terrain.
+
+### Adapting the Model
+To account for uneven terrain, the elevation \( y \) of the ground at a given horizontal distance \( x \) must be modeled. The projectile's trajectory is then compared to the ground elevation to determine when it lands.
+
+### Python Script for Uneven Terrain
+```python
+# Define ground elevation as a function of x
+def ground_elevation(x):
+    return 0.1 * x - 0.001 * x**2  # Example: Parabolic terrain
+
+# Simulation loop for uneven terrain
+x, y = 0, 0
+x_vals, y_vals = [], []
+
+while y >= ground_elevation(x):
+    v = np.sqrt(vx**2 + vy**2)
+    Fd = 0.5 * rho * v**2 * Cd * A
+    ax = -Fd * vx / (m * v)
+    ay = -g - Fd * vy / (m * v)
+    
+    vx += ax * dt
+    vy += ay * dt
+    x += vx * dt
+    y += vy * dt
+    
+    x_vals.append(x)
+    y_vals.append(y)
+
+# Plotting
+plt.figure(figsize=(10, 6))
+plt.plot(x_vals, y_vals, label="Projectile Trajectory")
+plt.plot(x_vals, [ground_elevation(x) for x in x_vals], label="Ground Elevation", linestyle="--")
+plt.title("Projectile Motion on Uneven Terrain")
+plt.xlabel("Horizontal Distance (m)")
+plt.ylabel("Vertical Distance (m)")
+plt.grid(True)
+plt.legend()
+plt.show()
+```
+
+---
+
+## 3. Variable Gravitational Fields
+For projectiles launched over very large distances (e.g., intercontinental ballistic missiles), the gravitational acceleration \( g \) is not constant. It decreases with altitude according to:
+$$
+g(h) = \frac{GM}{(R + h)^2}
+$$
+where:
+- \( G \) is the gravitational constant,
+- \( M \) is the mass of the Earth,
+- \( R \) is the radius of the Earth,
+- \( h \) is the altitude.
+
+### Adapting the Model
+The gravitational acceleration \( g \) must be updated at each time step based on the projectile's altitude \( h \).
+
+---
+
+## Conclusion
+The idealized projectile motion model can be adapted to real-world scenarios by incorporating:
+1. Air resistance (drag force).
+2. Uneven terrain.
+3. Variable gravitational fields.
+
+These adaptations make the model more realistic and applicable to practical situations such as sports, engineering, and space exploration.
+
