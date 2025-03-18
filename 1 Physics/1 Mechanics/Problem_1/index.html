@@ -268,7 +268,7 @@ plt.show()
 <li>Increasing <span class="arithmatex">\( g \)</span> decreases the range, as <span class="arithmatex">\( R \propto \frac{1}{g} \)</span>.</li>
 <li>Decreasing <span class="arithmatex">\( g \)</span> increases the range.</li>
 </ol>
-<h1 id="task-13-practical-applications">Task 1.3  Practical Applications</h1>
+<h1 id="task-13-practical-applications">Task 1.3 Practical Applications</h1>
 <h2 id="introduction_1">Introduction</h2>
 <p>The idealized model of projectile motion assumes:
 - No air resistance.
@@ -296,47 +296,111 @@ $$
 $$
 These equations require numerical methods (e.g., Euler's method or Runge-Kutta) for solving.</p>
 <h3 id="python-script-for-simulation-with-air-resistance">Python Script for Simulation with Air Resistance</h3>
-<p>```python
-import numpy as np
-import matplotlib.pyplot as plt</p>
-<h1 id="constants">Constants</h1>
-<p>g = 9.81       # Gravitational acceleration (m/s²)
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+# Constants
+g = 9.81       # Gravitational acceleration (m/s²)
 v0 = 50        # Initial velocity (m/s)
 theta = 45     # Angle of projection (degrees)
 m = 0.1        # Mass of projectile (kg)
 rho = 1.225    # Air density (kg/m³)
 Cd = 0.47      # Drag coefficient (sphere)
 A = 0.01       # Cross-sectional area (m²)
-dt = 0.01      # Time step (s)</p>
-<h1 id="initial-conditions">Initial conditions</h1>
-<p>vx = v0 * np.cos(np.radians(theta))
+dt = 0.01      # Time step (s)
+
+# Initial conditions
+vx = v0 * np.cos(np.radians(theta))
 vy = v0 * np.sin(np.radians(theta))
-x, y = 0, 0</p>
-<h1 id="lists-to-store-trajectory">Lists to store trajectory</h1>
-<p>x_vals, y_vals = [], []</p>
-<h1 id="simulation-loop">Simulation loop</h1>
-<p>while y &gt;= 0:
-    v = np.sqrt(vx<strong>2 + vy</strong>2)
+x, y = 0, 0
+
+# Lists to store trajectory
+x_vals, y_vals = [], []
+
+# Simulation loop
+while y &gt;= 0:
+    v = np.sqrt(vx**2 + vy**2)
     Fd = 0.5 * rho * v**2 * Cd * A
     ax = -Fd * vx / (m * v)
-    ay = -g - Fd * vy / (m * v)</p>
-<pre><code>vx += ax * dt
-vy += ay * dt
-x += vx * dt
-y += vy * dt
+    ay = -g - Fd * vy / (m * v)
 
-x_vals.append(x)
-y_vals.append(y)
-</code></pre>
-<h1 id="plotting">Plotting</h1>
-<p>plt.figure(figsize=(10, 6))
+    vx += ax * dt
+    vy += ay * dt
+    x += vx * dt
+    y += vy * dt
+
+    x_vals.append(x)
+    y_vals.append(y)
+
+# Plotting
+plt.figure(figsize=(10, 6))
 plt.plot(x_vals, y_vals, label="With Air Resistance")
 plt.title("Projectile Motion with Air Resistance")
 plt.xlabel("Horizontal Distance (m)")
 plt.ylabel("Vertical Distance (m)")
 plt.grid(True)
 plt.legend()
-plt.show()</p>
+plt.show()
+</code></pre>
+<hr/>
+<h2 id="2-uneven-terrain">2. Uneven Terrain</h2>
+<p>In real-world scenarios, the ground may not be flat. For example, a projectile launched from a hill or into a valley will have a different range compared to flat terrain.</p>
+<h3 id="adapting-the-model_1">Adapting the Model</h3>
+<p>To account for uneven terrain, the elevation <span class="arithmatex">\( y \)</span> of the ground at a given horizontal distance <span class="arithmatex">\( x \)</span> must be modeled. The projectile's trajectory is then compared to the ground elevation to determine when it lands.</p>
+<h3 id="python-script-for-uneven-terrain">Python Script for Uneven Terrain</h3>
+<pre><code class="language-python"># Define ground elevation as a function of x
+def ground_elevation(x):
+    return 0.1 * x - 0.001 * x**2  # Example: Parabolic terrain
+
+# Simulation loop for uneven terrain
+x, y = 0, 0
+x_vals, y_vals = [], []
+
+while y &gt;= ground_elevation(x):
+    v = np.sqrt(vx**2 + vy**2)
+    Fd = 0.5 * rho * v**2 * Cd * A
+    ax = -Fd * vx / (m * v)
+    ay = -g - Fd * vy / (m * v)
+
+    vx += ax * dt
+    vy += ay * dt
+    x += vx * dt
+    y += vy * dt
+
+    x_vals.append(x)
+    y_vals.append(y)
+
+# Plotting
+plt.figure(figsize=(10, 6))
+plt.plot(x_vals, y_vals, label="Projectile Trajectory")
+plt.plot(x_vals, [ground_elevation(x) for x in x_vals], label="Ground Elevation", linestyle="--")
+plt.title("Projectile Motion on Uneven Terrain")
+plt.xlabel("Horizontal Distance (m)")
+plt.ylabel("Vertical Distance (m)")
+plt.grid(True)
+plt.legend()
+plt.show()
+</code></pre>
+<hr/>
+<h2 id="3-variable-gravitational-fields">3. Variable Gravitational Fields</h2>
+<p>For projectiles launched over very large distances (e.g., intercontinental ballistic missiles), the gravitational acceleration <span class="arithmatex">\( g \)</span> is not constant. It decreases with altitude according to:
+$$
+g(h) = \frac{GM}{(R + h)^2}
+$$
+where:
+- <span class="arithmatex">\( G \)</span> is the gravitational constant,
+- <span class="arithmatex">\( M \)</span> is the mass of the Earth,
+- <span class="arithmatex">\( R \)</span> is the radius of the Earth,
+- <span class="arithmatex">\( h \)</span> is the altitude.</p>
+<h3 id="adapting-the-model_2">Adapting the Model</h3>
+<p>The gravitational acceleration <span class="arithmatex">\( g \)</span> must be updated at each time step based on the projectile's altitude <span class="arithmatex">\( h \)</span>.</p>
+<hr/>
+<h2 id="conclusion">Conclusion</h2>
+<p>The idealized projectile motion model can be adapted to real-world scenarios by incorporating:
+1. Air resistance (drag force).
+2. Uneven terrain.
+3. Variable gravitational fields.</p>
+<p>These adaptations make the model more realistic and applicable to practical situations such as sports, engineering, and space exploration.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
