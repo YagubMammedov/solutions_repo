@@ -337,11 +337,9 @@ In biomechanics, the principles of the forced damped pendulum are used to model 
 #### Example:
 - **Walking Patterns**: The rhythmic swinging of human legs during walking or running is analogous to a damped pendulum. The forces exerted by the muscles and the damping forces (from the ground and air) combine to produce stable, periodic movement.
 
----Here’s Task 4 written in Markdown for Visual Studio Code:
 
-```markdown
+#### Task 4:Implementation
 
-#### Task 4:Implementation:
 
 ### Introduction
 
