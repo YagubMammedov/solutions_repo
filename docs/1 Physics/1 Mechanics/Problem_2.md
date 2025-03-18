@@ -164,7 +164,7 @@ Got it! Here's the markdown for Task 2 based on your requirements. You can direc
 
 ```markdown
 
-#### Task 2: Analysis of Dynamics
+## Task 2: Analysis of Dynamics
 
 ### Damped Pendulum Equation
 
@@ -347,7 +347,7 @@ In biomechanics, the principles of the forced damped pendulum are used to model 
 
 The goal of this task is to create a computational model to simulate the motion of a forced damped pendulum. We will implement numerical methods to solve the system of equations governing the pendulum's motion and visualize the behavior under different conditions such as varying damping coefficients, driving forces, and initial conditions. Additionally, we will explore the phase diagrams and Poincaré sections to analyze transitions to chaotic behavior.
 
-### 4.1. Mathematical Model
+## 4.1 Mathematical Model
 
 The equation governing the forced damped pendulum is:
 
@@ -363,7 +363,7 @@ Where:
 - $A$ is the amplitude of the external driving force.
 - $\omega$ is the driving frequency.
 
-### 4.2 Numerical Method: Runge-Kutta
+## 4.2 Numerical Method: Runge-Kutta
 
 We will solve this equation using the **Runge-Kutta method** (specifically the 4th order method). This is a powerful method for solving ordinary differential equations numerically.
 
@@ -381,7 +381,7 @@ $$
 
 Where $m$ is the mass (which can be factored out in this simplified model).
 
-### 4.3 Python Implementation
+## 4.3 Python Implementation
 
 ```python
 import numpy as np
@@ -461,7 +461,7 @@ plt.show()
 - **Angle vs Time Plot**: This plot shows the angular displacement of the pendulum over time. We can observe the periodic oscillations and the effect of damping and external forcing.
 - **Phase Space Plot**: The phase space plot shows the relationship between the angular displacement and the angular velocity, which is useful for understanding the system's dynamics and detecting chaotic behavior.
 
-### 4.5. Exploring Transitions to Chaos
+## 4.5. Exploring Transitions to Chaos
 
 By varying parameters like the damping coefficient $b$, driving amplitude $A$, and driving frequency $\omega$, we can observe transitions from regular periodic motion to chaotic behavior. The system exhibits **nonlinear dynamics** under certain conditions, and visualizing this in the form of **phase diagrams**, **Poincaré sections**, and **bifurcation diagrams** helps us analyze these transitions.
 
@@ -471,7 +471,7 @@ For instance, increasing the driving amplitude or frequency can cause periodic m
 
 We can create a Poincaré section by plotting the value of $v$ versus $\theta$ at discrete times where the pendulum crosses the $\theta = 0$ axis. This allows us to observe the structure of the chaotic attractor and identify periodic, quasiperiodic, and chaotic regimes.
 
-### 4.6 Further Extensions
+## 4.6 Further Extensions
 
 The model presented here is a simple forced damped pendulum. In real-world systems, additional complexities such as **nonlinear damping**, **non-periodic forcing**, or **frictional forces** may exist. These factors can introduce more complexity into the dynamics, which can be explored through extended computational models.
 
