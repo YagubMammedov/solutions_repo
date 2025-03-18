@@ -418,52 +418,35 @@ plt.show()
 <ul>
 <li><strong>Walking Patterns</strong>: The rhythmic swinging of human legs during walking or running is analogous to a damped pendulum. The forces exerted by the muscles and the damping forces (from the ground and air) combine to produce stable, periodic movement.</li>
 </ul>
-<p>---Here’s Task 4 written in Markdown for Visual Studio Code:</p>
-<pre><code class="language-markdown">
-#### Task 4:Implementation:
-
-### Introduction
-
-The goal of this task is to create a computational model to simulate the motion of a forced damped pendulum. We will implement numerical methods to solve the system of equations governing the pendulum's motion and visualize the behavior under different conditions such as varying damping coefficients, driving forces, and initial conditions. Additionally, we will explore the phase diagrams and Poincaré sections to analyze transitions to chaotic behavior.
-
-## 4.1 Mathematical Model
-
-The equation governing the forced damped pendulum is:
-
-$$
+<h4 id="task-4implementation">Task 4:Implementation</h4>
+<h3 id="introduction">Introduction</h3>
+<p>The goal of this task is to create a computational model to simulate the motion of a forced damped pendulum. We will implement numerical methods to solve the system of equations governing the pendulum's motion and visualize the behavior under different conditions such as varying damping coefficients, driving forces, and initial conditions. Additionally, we will explore the phase diagrams and Poincaré sections to analyze transitions to chaotic behavior.</p>
+<h2 id="41-mathematical-model">4.1 Mathematical Model</h2>
+<p>The equation governing the forced damped pendulum is:</p>
+<div class="arithmatex">\[
 \frac{d^2\theta}{dt^2} + b \frac{d\theta}{dt} + \frac{g}{L} \sin(\theta) = A \cos(\omega t)
-$$
-
-Where:
-- $\theta$ is the angular displacement of the pendulum.
-- $b$ is the damping coefficient.
-- $g$ is the acceleration due to gravity.
-- $L$ is the length of the pendulum.
-- $A$ is the amplitude of the external driving force.
-- $\omega$ is the driving frequency.
-
-## 4.2 Numerical Method: Runge-Kutta
-
-We will solve this equation using the **Runge-Kutta method** (specifically the 4th order method). This is a powerful method for solving ordinary differential equations numerically.
-
-The system of equations is:
-- First, define the angular velocity as $v = \frac{d\theta}{dt}$.
-- This transforms the second-order differential equation into a system of two first-order equations:
-
-$$
+\]</div>
+<p>Where:
+- <span class="arithmatex">\(\theta\)</span> is the angular displacement of the pendulum.
+- <span class="arithmatex">\(b\)</span> is the damping coefficient.
+- <span class="arithmatex">\(g\)</span> is the acceleration due to gravity.
+- <span class="arithmatex">\(L\)</span> is the length of the pendulum.
+- <span class="arithmatex">\(A\)</span> is the amplitude of the external driving force.
+- <span class="arithmatex">\(\omega\)</span> is the driving frequency.</p>
+<h2 id="42-numerical-method-runge-kutta">4.2 Numerical Method: Runge-Kutta</h2>
+<p>We will solve this equation using the <strong>Runge-Kutta method</strong> (specifically the 4th order method). This is a powerful method for solving ordinary differential equations numerically.</p>
+<p>The system of equations is:
+- First, define the angular velocity as <span class="arithmatex">\(v = \frac{d\theta}{dt}\)</span>.
+- This transforms the second-order differential equation into a system of two first-order equations:</p>
+<div class="arithmatex">\[
 \frac{d\theta}{dt} = v
-$$
-
-$$
+\]</div>
+<div class="arithmatex">\[
 \frac{dv}{dt} = -\frac{b}{m} v - \frac{g}{L} \sin(\theta) + \frac{A}{m} \cos(\omega t)
-$$
-
-Where $m$ is the mass (which can be factored out in this simplified model).
-
-## 4.3 Python Implementation
-
-```python
-import numpy as np
+\]</div>
+<p>Where <span class="arithmatex">\(m\)</span> is the mass (which can be factored out in this simplified model).</p>
+<h2 id="43-python-implementation">4.3 Python Implementation</h2>
+<pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
 
 # Parameters
