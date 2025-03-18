@@ -50,44 +50,6 @@
 </li>
 <li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 2</a>
 <ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="#graphical-representations">Graphical Representations</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#task-113-phase-portraits-and-poincare-sections">Task 1.1.3: Phase Portraits and Poincaré Sections</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#task-114-discussion-and-extensions">Task 1.1.4: Discussion and Extensions</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#limitations-of-the-model">Limitations of the Model</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#potential-extensions">Potential Extensions</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#observations-and-discussion">Observations and Discussion</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#transition-to-chaos">Transition to Chaos</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#task-3-practical-applications">Task 3: Practical Applications:</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#task-3-real-world-applications-of-the-forced-damped-pendulum-model">Task 3: Real-World Applications of the Forced Damped Pendulum Model</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#1-energy-harvesting-devices">1. Energy Harvesting Devices</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#2-suspension-bridges-and-building-design">2. Suspension Bridges and Building Design</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#3-oscillating-circuits-in-electrical-engineering">3. Oscillating Circuits in Electrical Engineering</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#4-biomechanics-human-gait">4. Biomechanics: Human Gait</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#4-visualization-and-interpretation">4. Visualization and Interpretation</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#5-exploring-transitions-to-chaos">5. Exploring Transitions to Chaos</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#6-further-extensions">6. Further Extensions</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#conclusion">Conclusion</a>
-</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -167,91 +129,60 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-2">Problem 2</h1>
-<p>Sure! Below is the Markdown formatted for Visual Studio Code, using the $$ sign for equations and the $ sign for inline equations. This will allow you to copy and paste directly into VSC.</p>
-<pre><code class="language-markdown"># Forced Damped Pendulum: Theoretical and Computational Analysis
-
-## Task 1.1: Theoretical Foundation
-
-The equation of motion for a forced damped pendulum is given by:
-
-$$
+<h1 id="forced-damped-pendulum-theoretical-and-computational-analysis">Forced Damped Pendulum: Theoretical and Computational Analysis</h1>
+<h2 id="task-11-theoretical-foundation">Task 1.1: Theoretical Foundation</h2>
+<p>The equation of motion for a forced damped pendulum is given by:</p>
+<div class="arithmatex">\[
 \frac{d^2\theta}{dt^2} + b\frac{d\theta}{dt} + \frac{g}{L} \sin\theta = A\cos(\omega t)
-$$
-
-Where:
+\]</div>
+<p>Where:
 - $ \theta $ is the angular displacement.
 - $ b $ is the damping coefficient.
 - $ g $ is the acceleration due to gravity.
 - $ L $ is the length of the pendulum.
 - $ A $ is the amplitude of the external forcing.
-- $ \omega $ is the frequency of the external driving force.
-
-### Small Angle Approximation
-
-For small angles, we can approximate:
-
-$$
+- $ \omega $ is the frequency of the external driving force.</p>
+<h3 id="small-angle-approximation">Small Angle Approximation</h3>
+<p>For small angles, we can approximate:</p>
+<div class="arithmatex">\[
 \sin(\theta) \approx \theta
-$$
-
-This simplifies the equation of motion to:
-
-$$
+\]</div>
+<p>This simplifies the equation of motion to:</p>
+<div class="arithmatex">\[
 \frac{d^2\theta}{dt^2} + b\frac{d\theta}{dt} + \frac{g}{L} \theta = A\cos(\omega t)
-$$
-
-This is a linear second-order ordinary differential equation that describes the motion of the forced damped pendulum under the small-angle approximation.
-
-### Solution to the Homogeneous Equation
-
-The homogeneous part of the equation is:
-
-$$
+\]</div>
+<p>This is a linear second-order ordinary differential equation that describes the motion of the forced damped pendulum under the small-angle approximation.</p>
+<h3 id="solution-to-the-homogeneous-equation">Solution to the Homogeneous Equation</h3>
+<p>The homogeneous part of the equation is:</p>
+<div class="arithmatex">\[
 \frac{d^2\theta}{dt^2} + b\frac{d\theta}{dt} + \frac{g}{L} \theta = 0
-$$
-
-The general solution to this equation depends on the damping coefficient $ b $. The solution is of the form:
-
-$$
+\]</div>
+<p>The general solution to this equation depends on the damping coefficient $ b $. The solution is of the form:</p>
+<div class="arithmatex">\[
 \theta(t) = e^{-\gamma t} \left( C_1 \cos(\omega_d t) + C_2 \sin(\omega_d t) \right)
-$$
-
-Where:
+\]</div>
+<p>Where:
 - $ \gamma = \frac{b}{2m} $ is the damping coefficient.
-- $ \omega_d = \sqrt{\frac{g}{L} - \gamma^2} $ is the damped frequency.
-
-### Forced Solution
-
-The particular solution to the non-homogeneous equation is of the form:
-
-$$
+- $ \omega_d = \sqrt{\frac{g}{L} - \gamma^2} $ is the damped frequency.</p>
+<h3 id="forced-solution">Forced Solution</h3>
+<p>The particular solution to the non-homogeneous equation is of the form:</p>
+<div class="arithmatex">\[
 \theta(t) = \frac{A}{\sqrt{\left( \frac{g}{L} - \omega^2 \right)^2 + (b \omega)^2}} \cos(\omega t - \delta)
-$$
-
-Where $ \delta $ is the phase shift given by:
-
-$$
+\]</div>
+<p>Where $ \delta $ is the phase shift given by:</p>
+<div class="arithmatex">\[
 \tan(\delta) = \frac{b \omega}{\frac{g}{L} - \omega^2}
-$$
-
-This solution describes the motion of the pendulum under periodic forcing. The amplitude of the oscillation depends on the frequency $ \omega $ and the damping coefficient $ b $. 
-
-### Resonance and Energy
-
-Resonance occurs when the frequency of the external driving force matches the natural frequency of the pendulum. The natural frequency is:
-
-$$
+\]</div>
+<p>This solution describes the motion of the pendulum under periodic forcing. The amplitude of the oscillation depends on the frequency $ \omega $ and the damping coefficient $ b $. </p>
+<h3 id="resonance-and-energy">Resonance and Energy</h3>
+<p>Resonance occurs when the frequency of the external driving force matches the natural frequency of the pendulum. The natural frequency is:</p>
+<div class="arithmatex">\[
 \omega_0 = \sqrt{\frac{g}{L}}
-$$
-
-At resonance, the amplitude of the oscillations increases significantly. The energy absorbed by the system from the external force is maximized when the driving frequency is equal to the natural frequency. This leads to large oscillations, potentially causing instability in the system.
-
-## Task 1.1.2: Numerical Solution and Simulations
-
-To explore the dynamics of the forced damped pendulum numerically, we will employ numerical methods such as the Runge-Kutta method. We will also visualize the motion for different values of the damping coefficient, driving amplitude, and frequency.
-
-```python
-import numpy as np
+\]</div>
+<p>At resonance, the amplitude of the oscillations increases significantly. The energy absorbed by the system from the external force is maximized when the driving frequency is equal to the natural frequency. This leads to large oscillations, potentially causing instability in the system.</p>
+<h2 id="task-112-numerical-solution-and-simulations">Task 1.1.2: Numerical Solution and Simulations</h2>
+<p>To explore the dynamics of the forced damped pendulum numerically, we will employ numerical methods such as the Runge-Kutta method. We will also visualize the motion for different values of the damping coefficient, driving amplitude, and frequency.</p>
+<pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import solve_ivp
 
@@ -322,9 +253,8 @@ plt.show()
 <li><strong>Non-Periodic Driving Force:</strong> Introducing a random or aperiodic driving force could model systems that are more unpredictable, such as climate models or biological rhythms.</li>
 </ul>
 <p>Got it! Here's the markdown for Task 2 based on your requirements. You can directly copy-paste it into Visual Studio Code:</p>
-<pre><code class="language-markdown"># Forced Damped Pendulum: Task 2 - Analysis of Dynamics
-
-## Task 2: Analysis of Dynamics
+<pre><code class="language-markdown">
+####  Task 2: Analysis of Dynamics
 
 I### Damped Pendulum Equation
 
@@ -442,7 +372,6 @@ plt.show()
 <p>When the amplitude $ A $ or the driving frequency $ \omega $ is increased further, the system can enter a chaotic regime. This can be observed by plotting the motion of the system for certain values of $ A $ and $ \omega $, where the behavior becomes irregular and unpredictable. These chaotic behaviors represent a transition from regular periodic motion to complex dynamics.</p>
 <hr/>
 <h2 id="task-3-practical-applications">Task 3: Practical Applications:</h2>
-<h2 id="task-3-real-world-applications-of-the-forced-damped-pendulum-model">Task 3: Real-World Applications of the Forced Damped Pendulum Model</h2>
 <p>The forced damped pendulum is not just an idealized model but has practical applications in various fields, including energy harvesting, civil engineering (suspension bridges), and electrical engineering (oscillating circuits). In this section, we will explore some of the real-world scenarios where the principles of the forced damped pendulum are applied and provide insight into how damping, restoring forces, and external periodic forces come into play.</p>
 <h3 id="1-energy-harvesting-devices">1. Energy Harvesting Devices</h3>
 <p>In energy harvesting, systems are designed to convert mechanical vibrations into electrical energy. A common application is the use of <strong>vibration energy harvesters</strong>, which are often based on the forced damped pendulum model. The key idea is to capture the oscillations of a system subjected to external forces (such as wind, traffic, or machinery vibrations) and convert these oscillations into useful electrical energy.</p>
@@ -490,9 +419,8 @@ plt.show()
 <li><strong>Walking Patterns</strong>: The rhythmic swinging of human legs during walking or running is analogous to a damped pendulum. The forces exerted by the muscles and the damping forces (from the ground and air) combine to produce stable, periodic movement.</li>
 </ul>
 <p>---Here’s Task 4 written in Markdown for Visual Studio Code:</p>
-<pre><code class="language-markdown"># Forced Damped Pendulum: Task 4 - Implementation
-
-## Task 4: Computational Model for the Forced Damped Pendulum
+<pre><code class="language-markdown">
+## Task 4:  Implementation:
 
 ### Introduction
 
@@ -606,7 +534,7 @@ plt.ylabel("Angular Velocity (rad/s)")
 plt.tight_layout()
 plt.show()
 </code></pre>
-<h3 id="4-visualization-and-interpretation">4. Visualization and Interpretation</h3>
+<h3 id="task-4-visualization-and-interpretation">Task 4. Visualization and Interpretation</h3>
 <ul>
 <li><strong>Angle vs Time Plot</strong>: This plot shows the angular displacement of the pendulum over time. We can observe the periodic oscillations and the effect of damping and external forcing.</li>
 <li><strong>Phase Space Plot</strong>: The phase space plot shows the relationship between the angular displacement and the angular velocity, which is useful for understanding the system's dynamics and detecting chaotic behavior.</li>
