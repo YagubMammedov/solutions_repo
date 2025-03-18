@@ -159,3 +159,84 @@ The graph above shows the range \( R \) as a function of the angle of projection
    - Increasing \( g \) decreases the range, as \( R \propto \frac{1}{g} \).
    - Decreasing \( g \) increases the range.
 
+
+# Task 1.3  Practical Applications
+
+## Introduction
+The idealized model of projectile motion assumes:
+- No air resistance.
+- A flat, horizontal surface.
+- Constant gravitational acceleration \( g \).
+
+However, real-world scenarios often involve additional factors such as air resistance, uneven terrain, and variable gravitational fields. This task explores how the model can be adapted to describe these situations.
+
+---
+
+## 1. Air Resistance (Drag Force)
+In real-world scenarios, air resistance significantly affects the motion of a projectile. The drag force \( F_d \) acts opposite to the direction of motion and is given by:
+$$
+F_d = \frac{1}{2} \rho v^2 C_d A
+$$
+where:
+- \( \rho \) is the air density,
+- \( v \) is the velocity of the projectile,
+- \( C_d \) is the drag coefficient,
+- \( A \) is the cross-sectional area of the projectile.
+
+### Adapting the Model
+To incorporate air resistance, the equations of motion must include the drag force. The modified equations are:
+$$
+\frac{dv_x}{dt} = -\frac{F_d}{m} \cos(\theta)
+$$
+$$
+\frac{dv_y}{dt} = -g - \frac{F_d}{m} \sin(\theta)
+$$
+These equations require numerical methods (e.g., Euler's method or Runge-Kutta) for solving.
+
+### Python Script for Simulation with Air Resistance
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Constants
+g = 9.81       # Gravitational acceleration (m/s²)
+v0 = 50        # Initial velocity (m/s)
+theta = 45     # Angle of projection (degrees)
+m = 0.1        # Mass of projectile (kg)
+rho = 1.225    # Air density (kg/m³)
+Cd = 0.47      # Drag coefficient (sphere)
+A = 0.01       # Cross-sectional area (m²)
+dt = 0.01      # Time step (s)
+
+# Initial conditions
+vx = v0 * np.cos(np.radians(theta))
+vy = v0 * np.sin(np.radians(theta))
+x, y = 0, 0
+
+# Lists to store trajectory
+x_vals, y_vals = [], []
+
+# Simulation loop
+while y >= 0:
+    v = np.sqrt(vx**2 + vy**2)
+    Fd = 0.5 * rho * v**2 * Cd * A
+    ax = -Fd * vx / (m * v)
+    ay = -g - Fd * vy / (m * v)
+    
+    vx += ax * dt
+    vy += ay * dt
+    x += vx * dt
+    y += vy * dt
+    
+    x_vals.append(x)
+    y_vals.append(y)
+
+# Plotting
+plt.figure(figsize=(10, 6))
+plt.plot(x_vals, y_vals, label="With Air Resistance")
+plt.title("Projectile Motion with Air Resistance")
+plt.xlabel("Horizontal Distance (m)")
+plt.ylabel("Vertical Distance (m)")
+plt.grid(True)
+plt.legend()
+plt.show()
