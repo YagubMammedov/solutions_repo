@@ -445,6 +445,7 @@ plt.ylabel("Angular Velocity (rad/s)")
 plt.tight_layout()
 plt.show()
 ```
+![alt text](image-2.png)
 
 ## Task 4.4 Visualization and Interpretation
 
