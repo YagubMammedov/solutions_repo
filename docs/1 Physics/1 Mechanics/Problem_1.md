@@ -1,182 +1,97 @@
-# Problem 1
+# Task 1: Theoretical Foundation
 
-## Here are more detailed descriptions with formulas across different areas of physics:
+## 1.1 Equations of Motion for Projectile Motion
 
----
+The governing equations of motion for a projectile are derived from the basic principles of physics: *Newton's Laws of Motion* and the *equations of constant acceleration*. We will assume there is no air resistance in this idealized scenario.
 
-## **1. Kinematics (Motion)**
-Kinematics deals with the motion of objects without considering the forces that cause the motion.
+### Horizontal Motion:
 
-### **Equations of Motion (For Constant Acceleration)**
-1. **Velocity-Time Relation**  
-   \[
-   v = u + at
-   \]  
-   - \( v \) = final velocity  
-   - \( u \) = initial velocity  
-   - \( a \) = acceleration  
-   - \( t \) = time  
+$$
+x(t) = v_0 \cdot \cos(\theta) \cdot t
+$$
 
-2. **Displacement-Time Relation**  
-   \[
-   s = ut + \frac{1}{2}at^2
-   \]  
-   - \( s \) = displacement  
+where:
+- $x(t)$ is the horizontal position at time $t$,
+- $v_0$ is the initial velocity,
+- $\theta$ is the angle of projection,
+- $t$ is the time.
 
-3. **Velocity-Displacement Relation**  
-   \[
-   v^2 = u^2 + 2as
-   \]  
+### Vertical Motion:
 
-4. **Average Velocity**  
-   \[
-   v_{\text{avg}} = \frac{u + v}{2}
-   \]  
+$$
+y(t) = v_0 \cdot \sin(\theta) \cdot t - \frac{1}{2} g t^2
+$$
+
+where:
+- $y(t)$ is the vertical position at time $t$,
+- $g$ is the acceleration due to gravity ($9.81 \, \text{m/s}^2$).
+
+These two equations describe the horizontal and vertical positions of the projectile at any given time $t$.
 
 ---
 
-## **2. Newton’s Laws of Motion**
-### **Newton’s Second Law (Force)**
-\[
-F = ma
-\]
-- \( F \) = force  
-- \( m \) = mass  
-- \( a \) = acceleration  
+## 1.2 Time of Flight
 
-### **Newton’s Third Law (Action-Reaction)**
-\[
-F_{\text{action}} = -F_{\text{reaction}}
-\]
+The time of flight is the total time the projectile remains in the air before it hits the ground. To find this, we set the vertical position equal to zero at the time of impact:
 
-### **Momentum and Impulse**
-- **Momentum**:  
-  \[
-  p = mv
-  \]
-- **Impulse**:  
-  \[
-  J = F \Delta t = \Delta p
-  \]
+$$
+y(t_f) = 0
+$$
 
----
+Substitute the vertical motion equation:
 
-## **3. Work, Energy, and Power**
-### **Work**
-\[
-W = Fd \cos\theta
-\]
-where \( \theta \) is the angle between force and displacement.
+$$
+v_0 \sin(\theta) \cdot t_f - \frac{1}{2} g t_f^2 = 0
+$$
 
-### **Kinetic Energy (KE)**
-\[
-KE = \frac{1}{2}mv^2
-\]
+Factoring out $t_f$:
 
-### **Potential Energy (PE)**
-\[
-PE = mgh
-\]
+$$
+t_f \left( v_0 \sin(\theta) - \frac{1}{2} g t_f \right) = 0
+$$
 
-### **Work-Energy Theorem**
-\[
-W = \Delta KE
-\]
+Solving for $t_f$ (ignoring the trivial solution $t_f = 0$):
 
-### **Power**
-\[
-P = \frac{W}{t} = Fv
-\]
+$$
+t_f = \frac{2 v_0 \sin(\theta)}{g}
+$$
+
+Thus, the time of flight depends on the initial velocity $v_0$ and the angle of projection $\theta$.
 
 ---
 
-## **4. Gravitation**
-### **Newton’s Law of Universal Gravitation**
-\[
-F = G \frac{m_1 m_2}{r^2}
-\]
-where \( G = 6.674 \times 10^{-11} \, \text{Nm}^2/\text{kg}^2 \).
+## 1.3 Range of the Projectile
 
-### **Gravitational Potential Energy**
-\[
-U = -G \frac{m_1 m_2}{r}
-\]
+The range $R$ is the horizontal distance the projectile travels before hitting the ground. It is given by the horizontal motion equation at the time of flight $t_f$:
 
-### **Orbital Velocity**
-\[
-v = \sqrt{\frac{GM}{r}}
-\]
+$$
+R = x(t_f) = v_0 \cdot \cos(\theta) \cdot t_f
+$$
 
-### **Escape Velocity**
-\[
-v_e = \sqrt{\frac{2GM}{r}}
-\]
+Substitute the time of flight $t_f = \frac{2 v_0 \sin(\theta)}{g}$ into the equation for range:
 
----
+$$
+R = v_0 \cdot \cos(\theta) \cdot \frac{2 v_0 \sin(\theta)}{g}
+$$
 
-## **5. Circular Motion**
-### **Centripetal Force**
-\[
-F_c = \frac{mv^2}{r}
-\]
+Simplifying:
 
-### **Angular Velocity**
-\[
-\omega = \frac{\theta}{t}
-\]
+$$
+R = \frac{v_0^2 \sin(2\theta)}{g}
+$$
 
-### **Centripetal Acceleration**
-\[
-a_c = \frac{v^2}{r}
-\]
+This is the formula for the range of a projectile.
 
 ---
 
-## **6. Electricity & Magnetism**
-### **Ohm’s Law**
-\[
-V = IR
-\]
+## 1.4 Family of Solutions Based on Initial Conditions
 
-### **Electric Power**
-\[
-P = IV = I^2 R = \frac{V^2}{R}
-\]
+The range $R$ depends on two variables: the initial velocity $v_0$ and the angle of projection $\theta$.
 
-### **Coulomb’s Law**
-\[
-F = k \frac{q_1 q_2}{r^2}
-\]
-where \( k = 9 \times 10^9 \, \text{Nm}^2/\text{C}^2 \).
+- *Effect of Initial Velocity $v_0$*: 
+  - A higher initial velocity increases the range.
+  
+- *Effect of Angle of Projection $\theta$*:
+  - The range $R$ is a function of $\sin(2\theta)$. Therefore, the range will be maximized when $\theta = 45^\circ$, since $\sin(90^\circ) = 1$.
 
-### **Magnetic Force on a Moving Charge**
-\[
-F = qvB \sin\theta
-\]
-
-### **Magnetic Flux**
-\[
-\Phi = B A \cos\theta
-\]
-
----
-
-## **7. Thermodynamics**
-### **First Law of Thermodynamics**
-\[
-\Delta U = Q - W
-\]
-
-### **Ideal Gas Law**
-\[
-PV = nRT
-\]
-
-### **Efficiency of a Heat Engine**
-\[
-\eta = \frac{W}{Q_{\text{in}}} = 1 - \frac{Q_{\text{out}}}{Q_{\text{in}}}
-\]
-
----
-
-These equations form the foundation of physics. Let me know if you need more details on any specific topic! 😊
+By varying the initial velocity or launch angle, we obtain a family of solutions describing the projectile's behavior.
