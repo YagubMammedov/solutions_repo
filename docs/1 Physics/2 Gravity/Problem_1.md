@@ -366,7 +366,4 @@ Where **a** = semi-major axis
 - **Exoplanet Science:** Foundation for characterizing alien worlds
 - **Theoretical Test:** Validates modifications to Newtonian gravity
 
-**Future Directions:**
-- Application to fast radio burst timing
-- Tests of general relativity in strong fields
-- Interstellar mission planning
+
